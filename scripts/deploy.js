@@ -1,12 +1,11 @@
 const main = async () => {
 
-    const SupplyChainContractFactory = await hre.ethers.getContractFactory('ItemManager');
-    const SupplyChainContract = await SupplyChainContractFactory.deploy();
-    await SupplyChainContract.deployed();
-    console.log("Contract deployed to:", SupplyChainContract.address);
+    const ProductContractFactory = await hre.ethers.getContractFactory('ProductContract');
+    const ProductContract = await ProductContractFactory.deploy();
+    await ProductContract.deployed();
+    console.log("Contract deployed to:", ProductContract.address);
 
-    let txn = await SupplyChainContract.createItem("Rolex", 1234, 34566);
-    
+    //let txn = await SupplyChainContract.createItem("Rolex", 1234, 34566);
    
   };
   

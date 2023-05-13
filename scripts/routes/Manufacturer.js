@@ -7,13 +7,6 @@ const {CONTRACT_ADDRESS} = process.env;
 
 
 
-// router.get('/',(req,res)=>{
-//     res.render("manufacturer");
-// })
-
-// router.get('/createItem',(req,res)=>{
-//   res.render("manufacturer",{name:name,status:`Item created successfully! ${itemCode}`})
-// })
 
 router.post('/createItem',(req,res)=>{
     let itemName = req.body.name;
@@ -59,50 +52,8 @@ router.post('/createItem',(req,res)=>{
       // res.render("manufacturer",{name:name,status:`Item created successfully! ${itemCode}`})
 })
 
-router.post('/updateItem',(req,res)=>{
-    let itemCode = Number(req.body.itemCode);
-    let status = req.body.status;
 
-    async function main (){
-        const SupplyChainContractFactory = await hre.ethers.getContractFactory('ItemManager');
-        const SupplyChainContract = await SupplyChainContractFactory.attach(CONTRACT_ADDRESS);
-        
-        if(status == "Paid") {
-          let txn = await SupplyChainContract.triggerPayment(itemCode);
-          let state = await SupplyChainContract.getItemStatus(itemCode) 
-          console.log(state);
-            
-          }
-
-        if(status == "Delivered") {
-          let txn = await SupplyChainContract.triggerDelivery(itemCode);
-          state = await SupplyChainContract.getItemStatus(itemCode)
-        console.log(state);
-        
-       }
-        
-    
-      };
-      
-      const runMain = async () => {
-        try {
-          await main();
-          // process.exit(0);
-        } catch (error) {
-          // console.log(error);
-          // process.exit(1);
-        }
-      };
-      
-       runMain();
-      console.log("State Updated")
-      res.cookie('status',"State Updated Successfully",{expires: new Date(Date.now()+1000), httpOnly:true});
-       res.redirect("/signin")
-       
-      //  let name = req.cookies.name
-      //  res.render("manufacturer",{name:name,status:"Item updated successfully!"})
-
-})
+// QR generate
 
 router.post('/search',(req,res)=>{
     let itemCode = Number(req.body.itemCode);
