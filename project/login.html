@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form-box">
+
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="signin()">Sign in</button>
+                <button type="button" class="toggle-btn" onclick="signup()">Sign up</button>
+            </div>
+
+            <form id="signin" class="input-group" action="">
+                <input type="email" name="" class="input-field" placeholder="Enter email id">
+                <input type="password" name="" class="input-field" placeholder="Enter password">
+                <button type="submit" class="submit-btn">Sign in</button>
+            </form>
+
+            <form id="signup" class="input-group" action="">
+                <input type="email" name="" class="input-field" placeholder="Enter email id">
+                <input type="text" name="" class="input-field" placeholder="Enter username">
+                <input type="password" name="" class="input-field" placeholder="Enter password">
+                <label for="role">Select Role</label>
+                <input type="text" name="role" list="rolename" id="rolebox">
+                <datalist id="rolename">
+                    <option value="Consumer">
+                    <option value="Retailer">
+                    <option value="Distributor">
+                    <option value="Manufacturer">
+                </datalist>
+                <button type="submit" class="submit-btn">Sign in</button>
+            </form>
+
+
+        </div>
+    </div>
+
+    <script>
+        var x=document.getElementById("signin");
+        var y=document.getElementById("signup");
+        var z=document.getElementById("btn");
+
+        function signup(){
+            x.style.left="-400px";
+            y.style.left="50px";
+            z.style.left="110px";
+        }
+
+        function signin(){
+            x.style.left="50px";
+            y.style.left="450px";
+            z.style.left="0px";
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer</title>
+    <!-- google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<link rel="stylesheet" href="Consumer.css">
+</head>
+<body>
+    <body>
+
+        <header>
+          <nav class="navbar">
+              <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="https://google.com">About</a></li>
+                  <li><a href="https://google.com">Services</a></li>
+                  <li><a href="https://google.com">Contact us</a></li>
+                  
+              </ul>
+          </nav>
+      </header>
+      
+      
+      
+        <div id="starting">
+          <h1 class="ml6">
+            <span class="text-wrapper">
+              <span class="letters">Welcome XYZZZZZ</span>
+            </span>
+          </h1>
+          <h3>Buy new products today</h3>
+        </div>
+      
+        <div id="container-head">
+        <!-- Create item -->
+          
+      
+            <!-- update state -->
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                Buy item
+              </button>
+              <form class="dropdown-menu p-4">
+                <div class="mb-3">
+                  <label for="exampleDropdownFormEmail2" class="form-label">Identifier</label>
+                  <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc">
+                </div>
+                
+                
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+            </div>
+      
+            <!-- search item -->
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                Search item
+              </button>
+              <form class="dropdown-menu p-4">
+                <div class="mb-3">
+                  <label for="exampleDropdownFormEmail2" class="form-label">Identifier</label>
+                  <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc">
+                </div>
+                <p>Errorrrrrrrrrrr</p>
+                
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+            </div>
+            </div>
+            <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit iusto aut quidem expedita ipsa, enim fuga maiores officia perferendis doloremque itaque quos nesciunt facilis corrupti accusantium reprehenderit esse a aspernatur dignissimos fugiat architecto nulla similique amet dolorum. Mollitia molestiae odio blanditiis, nesciunt facere, recusandae labore pariatur suscipit quis accusamus temporibus nihil autem officiis numquam? Vitae beatae animi ex pariatur, quam reprehenderit ea. Dolorem velit magni in ullam ea vero repudiandae rem cum tenetur doloremque! Quos repellat possimus vitae velit facilis explicabo deleniti, nesciunt quae quo voluptatum? Hic pariatur sapiente cumque sit placeat neque. Labore atque ut, magnam explicabo ullam illo.</p> -->
+      <script>
+        // Wrap every letter in a span
+      var textWrapper = document.querySelector('.ml6 .letters');
+      textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+      
+      anime.timeline({loop: true})
+        .add({
+          targets: '.ml6 .letter',
+          translateY: ["1.1em", 0],
+          translateZ: 0,
+          duration: 750,
+          delay: (el, i) => 50 * i
+        }).add({
+          targets: '.ml6',
+          opacity: 0,
+          duration: 1000,
+          easing: "easeOutExpo",
+          delay: 1000
+        });
+      </script>
+      
+</body>
+</html>

@@ -1,0 +1,49 @@
+<%- include("partials/header") -%>
+
+<span class="letters">Welcome <%= name %></span>
+          </span>
+        </h1>
+
+<h3>Buy new products today</h3>
+        </div>
+      
+        <div id="container-head">
+        <!-- Create item -->
+          
+      
+            <!-- update state -->
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                Buy item
+              </button>
+              <form class="dropdown-menu p-4">
+                <div class="mb-3">
+                  <label for="exampleDropdownFormEmail2" class="form-label">Identifier</label>
+                  <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc">
+                </div>
+                
+                
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+            </div>
+      
+            <!-- search item -->
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                Search item
+              </button>
+              <form class="dropdown-menu p-4">
+                <div class="mb-3">
+                  <label for="exampleDropdownFormEmail2" class="form-label">Identifier</label>
+                  <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc">
+                </div>
+                
+                
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+            </div>
+            </div>
+            
+            <p><%= status %></p>
+
+            <%- include("partials/footer") -%>
