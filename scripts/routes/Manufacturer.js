@@ -1,4 +1,3 @@
-const cookieParser = require('cookie-parser');
 
 const router = require('express').Router();
 require("@nomiclabs/hardhat-waffle");
@@ -17,14 +16,12 @@ router.post('/createItem',async (req,res)=>{
     let licenses = []
 
     async function main (){
-        const SupplyChainContractFactory = await hre.ethers.getContractFactory('ItemManager');
-        const SupplyChainContract = await SupplyChainContractFactory.attach(CONTRACT_ADDRESS);
+        const ProductContractFactory = await hre.ethers.getContractFactory('ProductContract');
+        const ProductContract = await ProductContractFactory.attach(CONTRACT_ADDRESS);
         
-        let txn =  await SupplyChainContract.createItem(itemName, price, finalDate);
+        let txn =  await ProductContract.createItem(itemId, [productName, price, nameOfManufacturer, locationOfManufacture, dateOFManufacture, licenses]);
         console.log(txn)
 
-        itemCode = Number(await SupplyChainContract.getItemCode());
-        console.log(itemCode);
        
       };
       
