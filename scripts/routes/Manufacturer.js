@@ -53,7 +53,9 @@ router.post('/createItem',(req,res)=>{
 })
 
 
-// QR generate
+// QR generate & render
+// add image for certificates 
+// add history of products of a manufacturer
 
 router.post('/search',(req,res)=>{
     let itemCode = Number(req.body.itemCode);
