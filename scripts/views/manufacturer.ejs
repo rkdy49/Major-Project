@@ -9,72 +9,32 @@
 
   <div id="container-head">
   <!-- Create item -->
-    <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-          Create Item
-        </button>
+    <div class="">
         <form class="dropdown-menu p-4" action = "/Manufacturer/createItem" method = 'post'>
           <div class="mb-3">
             <label for="exampleDropdownFormEmail2" class="form-label">Product name</label>
-            <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc" name = "name">
+            <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc" name = "itemName">
           </div>
           <div class="mb-3">
             <label for="exampleDropdownFormPassword2" class="form-label">Product price</label>
-            <input type="text" class="form-control" id="exampleDropdownFormPassword2" placeholder="$100" name = "price">
+            <input type="text" class="form-control" id="exampleDropdownFormPassword2" placeholder="$100" name = "itemPrice">
           </div>
           <div class="mb-3">
-            
+            <label for="exampleDropdownFormEmail2" class="form-label">Manufacturer's Name</label>
+            <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc" name = "nameOfManufacturer">
           </div>
+          <div class="mb-3">
+            <label for="exampleDropdownFormEmail2" class="form-label">Location</label>
+            <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc" name = "locationOfManufacture">
+          </div>
+          <div class="mb-3">
+            <label for="exampleDropdownFormEmail2" class="form-label">Date</label>
+            <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc" name = "dateOfManufacture">
+          </div>
+          
           <button type="submit" class="btn btn-primary">Create</button>
         </form>
       </div>
-
-      <!-- update state -->
-      <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-          Update state
-        </button>
-        <form class="dropdown-menu p-4" action = "/Manufacturer/updateItem" method = 'post'>
-          <div class="mb-3">
-            <label for="exampleDropdownFormEmail2" class="form-label">Enter Item Code</label>
-            <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="abc" name = "itemCode">
-            <div><label for="role">Select state</label></div>
-                <input type="text" name="status" list="rolename" id="rolebox" class="form-control" >
-                <datalist id="rolename">
-                    <option value="Created">
-                    <option value="Paid">
-                    <option value="Delivered">
-                </datalist>
-          </div>
-          
-          
-          <button type="submit" class="btn btn-primary">Update</button>
-        </form>
       </div>
-
-    
-
-      <!-- search item -->
-      <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-          Search item
-        </button>
-
-        <form class="dropdown-menu p-4" action = "/Manufacturer/search" method = 'post'>
-          <div class="mb-3">
-            <label for="exampleDropdownFormEmail2" class="form-label">Item Code</label>
-            <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="123" name="itemCode">
-          </div>
-      
-          <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-      </div>
-      </div>
-
-      <P><%= status %></P>
-      <P><%= code %></P>
-      <P><%= item %></P>
-      <P><%= state %></P>
-      <P><%= date %></P>
 
 <%- include("partials/footer") -%>

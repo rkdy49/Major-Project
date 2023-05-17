@@ -1,4 +1,6 @@
 const cookieParser = require('cookie-parser');
+const qr = require('qrcode');
+const ShortUniqueId = require('short-unique-id');
 
 const router = require('express').Router();
 require("@nomiclabs/hardhat-waffle");
@@ -9,12 +11,16 @@ const {CONTRACT_ADDRESS} = process.env;
 
 
 router.post('/createItem',async (req,res)=>{
-    const productName = req.body.name
-    const price = Number(req.body.price)
+    const itemName = req.body.itemName
+    const itemPrice = Number(req.body.itemPrice)
     const nameOfManufacturer = (req.body.nameOfManufacturer)
     const locationOfManufacture = (req.body.locationOfManufacture)
     const dateOFManufacture = (req.body.dateOfManufacture)
     let licenses = []
+
+    const uid = new ShortUniqueId({ length: 8 });
+
+    const itemCode = uid();
 
     async function main (){
         const SupplyChainContractFactory = await hre.ethers.getContractFactory('ItemManager');

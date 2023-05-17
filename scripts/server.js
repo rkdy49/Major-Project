@@ -68,7 +68,7 @@ app.get('/api/qr/:uuid',(req,res)=>{
        runMain();
 
 
-       res.render('auth',{status:status,code: itemCode,name: itemName,date: dateOFManufacture});
+       res.render('auth',{names,price,manufacturer,location,date});
 })
 
 
