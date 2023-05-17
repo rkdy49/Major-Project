@@ -1,11 +1,15 @@
-<%- include('header'); -%>
+<%- include("partials/header") -%>
+<div>
     <h1>Product Authentication Report</h1>
     <br>
     <h3>Item Found Successfully</h3>
-    <p><%= names %></p>
-    <p><%= price %></p>
-    <p><%= manufacturer %></p>
-    <p><%= location %></p>
-    <p><%= date %></p>
+    <p>Product's Name: <%= itemName %></p>
+    <p>Product unique ID: <%= itemId %></p>
+    <p>Price: <%= itemPrice %></p>
+    <p>Name of Manufacturer: <%= nameOfManufacturer %></p>
+    <p>Location of Manufacture: <%= location %></p>
+    <p>Date of Manufacture: <%= date %></p>
+</div>    
+
   
-<%- include('footer'); -%>
+    <%- include("partials/footer") -%>

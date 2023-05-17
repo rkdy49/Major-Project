@@ -5,7 +5,6 @@ const main = async () => {
     await ProductContract.deployed();
     console.log("Contract deployed to:", ProductContract.address);
 
-    //let txn = await SupplyChainContract.createItem("Rolex", 1234, 34566);
    
   };
   

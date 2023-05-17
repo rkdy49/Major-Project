@@ -5,8 +5,7 @@ const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const cookieParser = require('cookie-parser');
 const qr = require('qrcode');
-import { ethers } from "ethers";
-// const morgan = require('morgan');
+const {CONTRACT_ADDRESS} = process.env;
 
 connectDB();
 
@@ -28,24 +27,40 @@ app.set('view engine', 'ejs');
 
 
 app.use('/', require('./routes/signup'));
-app.use('/Consumer', require('./routes/Consumer'));
+
 app.use('/Manufacturer', require('./routes/Manufacturer'));
 
 
 app.get('/api/qr/:uuid',(req,res)=>{
 
-  const itemId = Number(req.params.uuid);
-  let itemName,status,dateOFManufacture
-  
-  const contract = new ethers.Contract(
-    contractAddress,
-    abi
-  );
+    const itemId = req.params.uuid
+   
+    
+    async function main (){
+
+        const ProductContractFactory = await hre.ethers.getContractFactory('ProductContract');
+        const ProductContract = await ProductContractFactory.attach(CONTRACT_ADDRESS);
+        console.log(itemId)
+        const info =  await ProductContract.getItemInfo(itemId);
+        res.render('auth',{ itemName: info.itemName, itemId: itemId, itemPrice : info.itemPrice, nameOfManufacturer : info.nameOfManufacture, location: info.locationOfManufacture, date: info.dateOfManufacture});
         
-  const res = contract.getItemInfo(itemId);  
-     
       
-   res.render('auth',{status:status,code: itemCode,name: itemName,date: dateOFManufacture});
+      };
+      
+      const runMain = async () => {
+        try {
+          await main()
+          // process.exit(0);
+        } catch (error) {
+          console.log(error);
+          // process.exit(1);
+        }
+      };
+      
+       runMain();
+
+
+      
 })
 
 

@@ -20,21 +20,22 @@ router.post('/createItem',async (req,res)=>{
 
     const uid = new ShortUniqueId({ length: 8 });
 
-    const itemCode = uid();
+    const itemId = uid();
+    console.log(itemId)
 
     async function main (){
         const ProductContractFactory = await hre.ethers.getContractFactory('ProductContract');
         const ProductContract = await ProductContractFactory.attach(CONTRACT_ADDRESS);
         
-        let txn =  await ProductContract.createItem(itemId, [productName, price, nameOfManufacturer, locationOfManufacture, dateOFManufacture, licenses]);
+        let txn =  await ProductContract.createItem(itemId, [itemName, itemPrice, nameOfManufacturer, locationOfManufacture, dateOFManufacture, licenses]);
         console.log(txn)
+        
 
-       
       };
       
       const runMain = async () => {
         try {
-          await main();
+          await main()
           process.exit(0);
         } catch (error) {
           console.log(error);
@@ -44,9 +45,7 @@ router.post('/createItem',async (req,res)=>{
       
        runMain();
 
-       
-        // res.cookie('status',"Item Created Successfully",{expires: new Date(Date.now()+1000), httpOnly:true});
-        let string = `http://localhost:3000/api/qr/${itemCode}`;
+       let string = `http://localhost:3000/api/qr/${itemId}`;
         qr.toDataURL(string, function (err, url) {
           if (err) {
             res.send('Error generating QR code');
@@ -55,6 +54,7 @@ router.post('/createItem',async (req,res)=>{
             res.render('qrcode', { qrCode: url ,string: string});
           }
         });
+        
      
 })
 
