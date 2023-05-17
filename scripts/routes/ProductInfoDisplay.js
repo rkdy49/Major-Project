@@ -1,1 +1,0 @@
-//Blockchain data fetching and rendering

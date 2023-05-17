@@ -8,7 +8,7 @@ const {CONTRACT_ADDRESS} = process.env;
 
 
 
-router.post('/createItem',(req,res)=>{
+router.post('/createItem',async (req,res)=>{
     let itemName = req.body.name;
     let price = Number(req.body.price);
     let itemCode
@@ -42,10 +42,19 @@ router.post('/createItem',(req,res)=>{
        runMain();
 
        
-      res.cookie('status',"Item Created Successfully",{expires: new Date(Date.now()+1000), httpOnly:true});
+        // res.cookie('status',"Item Created Successfully",{expires: new Date(Date.now()+1000), httpOnly:true});
+        let string = `http://localhost:3000/api/qr/${itemCode}`;
+        qr.toDataURL(string, function (err, url) {
+          if (err) {
+            res.send('Error generating QR code');
+          } else {
+            // render the template and pass the QR code data as a variable
+            res.render('qrcode', { qrCode: url ,string: string});
+          }
+        });
       // res.cookie('code',itemCode,{expires: new Date(Date.now()+1000), httpOnly:true});
 
-       res.redirect("/signin")
+      //  res.redirect("/signin")
 
       // itemCode = JSON.stringify(itemCode)
       //  let name = req.cookies.name
